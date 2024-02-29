@@ -1,0 +1,26 @@
+<div class="newsList">
+    <h1 class="roboto-bold">Latest News</h1>
+    <div class="left-side">
+        <div class="search-container">
+              <input type="text" placeholder="Search.." [(ngModel)]="searchItem" (keyup.enter)="onKeyEnter()" name="search" autocomplete="off">
+              <button type="submit" class="search-btn" (click)="onKeyEnter()"><i class="fa fa-search"></i></button>
+          </div>
+    </div>
+    <div class="right-side" [hidden]="!articles.length">
+        <div class="pagination">
+            <a (click)="previousPage()">&laquo;</a>
+            <ng-container *ngFor="let page of pages;">
+                <a [class.active]="page===activePage" (click)="gotoPage(page)">{{page}}</a></ng-container>
+            <a (click)="nextPage()">&raquo;</a>
+        </div>
+    </div>
+    <ng-container *ngIf="articles.length">
+        <app-news-list [articles]="articles"></app-news-list>
+    </ng-container>  
+    <ng-container *ngIf="!articles.length">
+        <div class="no-record roboto-bold">
+            No Record Found
+        </div>
+    </ng-container>  
+    
+</div>

@@ -1,0 +1,20 @@
+<ng-container *ngFor="let list of articles;">
+    <div class="list">
+        <div class="roboto-bold">
+            <h2>{{list.title}}</h2>
+        </div>
+        <div class="content-image roboto-regular">
+            <div class="image">
+                <img [src]="list.urlToImage" alt="">
+            </div>
+            <div class="content">
+                <p class="pDesc"><b>Description:</b> {{list.description}}</p>
+
+                <p><b>Content:</b> {{list.content}}</p>
+                <p><b>Author:</b> {{list.author}}</p>
+                <p><b>Published At:</b> {{list.publishedAt | date}}</p>
+                <p><b>Source: </b> {{list.source.name}}</p>
+            </div>
+        </div>
+    </div>
+</ng-container>
